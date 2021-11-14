@@ -1,17 +1,33 @@
-import React from 'react';
+import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+import ErrorBoundary from "./ui/ErrorBoundary";
+import Admin from "./routers/admin/Admin";
+import Auth from "./routers/authentication/Auth";
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// SCSS
+import './assets/scss/bootstrap.scss'
+import './assets/scss/icons.scss'
+import './assets/scss/app.scss'
+
+// JS
+import 'jquery/dist/jquery.min';
+import 'bootstrap/dist/js/bootstrap.bundle'
+import 'simplebar/dist/simplebar.min'
+import 'node-waves/dist/waves.min'
+
+class App extends Component {
+
+    render() {
+
+
+        return (
+            <ErrorBoundary>
+                <Admin/>
+                <Auth/>
+            </ErrorBoundary>
+        )
+    }
+}
+
+ReactDOM.render(<App/>, document.getElementById('root'));
