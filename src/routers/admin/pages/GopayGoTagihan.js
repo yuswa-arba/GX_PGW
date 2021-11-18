@@ -9,12 +9,12 @@ import DateRange from "../../../ui/forms/DateRange";
 import PaginationRow from "../../../ui/components/PaginationRow";
 
 import * as notify from "../../../lib/notification";
-import {downloadAlterraTransactions, getAlterraTransactions} from "../../../lib/transaction";
+import {getGopayTransactions, downloadGopayTransactions} from "../../../lib/transaction";
 import {getPartners} from "../../../lib/partners";
 
-import {ALTERRA} from "../../../config/partners";
+import {GOPAY_GO_TAGIHAN} from "../../../config/partners";
 
-class Alterra extends Component {
+class GopayGoTagihan extends Component {
 
     state = {
         transactions: [],
@@ -64,7 +64,7 @@ class Alterra extends Component {
 
                     if (resData && resData.results && resData.results.partners) {
                         alterraPartnerStatus = resData.results.partners.find((partner) => {
-                            return partner.key === ALTERRA
+                            return partner.key === GOPAY_GO_TAGIHAN
                         })
                     }
 
@@ -108,7 +108,7 @@ class Alterra extends Component {
     }
 
     _handleGetData = () => {
-        getAlterraTransactions(this.state.searchObject)
+        getGopayTransactions(this.state.searchObject)
             .then((resData) => {
 
                 let transactions = []
@@ -141,7 +141,7 @@ class Alterra extends Component {
         delete searchObject.page
 
         this._isLoadingDownload(true, (() => {
-            downloadAlterraTransactions(searchObject)
+            downloadGopayTransactions(searchObject)
                 .then((resData) => {
                     this._isLoadingDownload(false)
                 })
@@ -272,4 +272,4 @@ class Alterra extends Component {
 
 }
 
-export default Alterra;
+export default GopayGoTagihan;

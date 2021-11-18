@@ -9,12 +9,12 @@ import DateRange from "../../../ui/forms/DateRange";
 import PaginationRow from "../../../ui/components/PaginationRow";
 
 import * as notify from "../../../lib/notification";
-import {downloadAlterraTransactions, getAlterraTransactions} from "../../../lib/transaction";
+import {getMidtransTransactions, downloadMidtransTransactions} from "../../../lib/transaction";
 import {getPartners} from "../../../lib/partners";
 
-import {ALTERRA} from "../../../config/partners";
+import {MIDTRANS} from "../../../config/partners";
 
-class Alterra extends Component {
+class Midtrans extends Component {
 
     state = {
         transactions: [],
@@ -64,7 +64,7 @@ class Alterra extends Component {
 
                     if (resData && resData.results && resData.results.partners) {
                         alterraPartnerStatus = resData.results.partners.find((partner) => {
-                            return partner.key === ALTERRA
+                            return partner.key === MIDTRANS
                         })
                     }
 
@@ -108,7 +108,7 @@ class Alterra extends Component {
     }
 
     _handleGetData = () => {
-        getAlterraTransactions(this.state.searchObject)
+        getMidtransTransactions(this.state.searchObject)
             .then((resData) => {
 
                 let transactions = []
@@ -140,15 +140,13 @@ class Alterra extends Component {
         let searchObject = this.state.searchObject
         delete searchObject.page
 
-        this._isLoadingDownload(true, (() => {
-            downloadAlterraTransactions(searchObject)
-                .then((resData) => {
-                    this._isLoadingDownload(false)
-                })
-                .catch((err) => {
-                    this._isLoadingDownload(false)
-                })
-        })())
+        this._isLoadingDownload(true, downloadMidtransTransactions(searchObject)
+            .then((resData) => {
+                this._isLoadingDownload(false)
+            })
+            .catch((err) => {
+                this._isLoadingDownload(false)
+            }))
 
     }
 
@@ -272,4 +270,4 @@ class Alterra extends Component {
 
 }
 
-export default Alterra;
+export default Midtrans;

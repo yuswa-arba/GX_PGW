@@ -1,6 +1,6 @@
 import React from "react"
 
-const FilterFormInput = React.memo(props => {
+const FormInput = React.memo(props => {
 
     return (
         <div className={'form-group ' + (props.divClass || '')}>
@@ -15,11 +15,12 @@ const FilterFormInput = React.memo(props => {
                    placeholder={props.placeholder || props.label || ''}
                    readOnly={props.readOnly}
                    disabled={props.disabled}
-                   onChange={props.change}/>
+                   onChange={props.change}
+                   onKeyPress={props.keyPress}/>
 
         </div>
     );
 
 })
 
-export {FilterFormInput}
+export {FormInput}

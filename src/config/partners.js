@@ -1,0 +1,5 @@
+export const ADMINISTRATOR = 'administrator_globalxtreme'
+export const ALTERRA = 'alterra'
+export const DANA = 'dana'
+export const GOPAY_GO_TAGIHAN = 'gopay_go-tagihan'
+export const MIDTRANS = 'midtrans'

@@ -1,13 +1,18 @@
 import React from "react"
 
-const FilterFormSelect = React.memo(props => {
+const FormSelect = React.memo(props => {
 
     return (
         <div className={'form-group ' + (props.divClass || '')}>
 
             {props.label ? <label className="control-label">{props.label}</label> : null}
 
-            <select className={'form-control ' + (props.selectClass || '')}>
+            <select id={props.id}
+                    name={props.name}
+                    className={'form-control ' + (props.selectClass || '')}
+                    value={props.value}
+                    onChange={props.change}
+                    disabled={props.disabled}>
 
                 {props.defaultOption ? <option value="">{props.defaultOption}</option> : null}
 
@@ -24,4 +29,4 @@ const FilterFormSelect = React.memo(props => {
 
 })
 
-export {FilterFormSelect}
+export {FormSelect}

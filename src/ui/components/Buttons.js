@@ -4,10 +4,10 @@ const DefaultButton = ({props, btnColor}) => {
     return (
         <button type={props.type || 'button'}
                 id={props.id}
-                disabled={props.disabled}
+                disabled={props.disabled || props.isLoaded}
                 onClick={props.click}
-                className={`btn waves-effect waves-light ${(btnColor || 'btn-default')} ${(props.customClass || '')}`}>
-            {props.title}
+                className={`btn waves-light waves-effect ${(btnColor || 'btn-default')} ${(props.btnClass || '')}`}>
+            {props.title} {props.isLoaded ? <span className="bx bx-loader"/> : null}
         </button>
     );
 }
