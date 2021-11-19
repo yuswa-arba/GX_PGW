@@ -1,9 +1,8 @@
 import React, {Component} from "react"
 
 // IMAGES
-import logo_light__svg from "../../../../assets/images/logo-light.svg"
-import logo_light__png from "../../../../assets/images/logo-light.png"
-import photo_profile from "../../../../assets/images/profile.jpg"
+import logo_light__png from "../../../../assets/images/gx_new_logo_white.png"
+import avatar_small from "../../../../assets/images/avatar_small.jpg"
 import {authLogout} from "../../../../lib/authentication";
 import {getUserAccount} from "../../../../config/authentication";
 
@@ -51,9 +50,6 @@ class Header extends Component {
                     <div className="d-flex">
                         <div className="navbar-brand-box">
                             <a href="/" className="logo logo-light">
-                                <span className="logo-sm">
-                                    <img src={logo_light__svg} alt="" height="22"/>
-                                </span>
                                 <span className="logo-lg">
                                     <img src={logo_light__png} alt="" height="19"/>
                                 </span>
@@ -69,7 +65,7 @@ class Header extends Component {
                                     id="page-header-user-dropdown"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <img className="rounded-circle header-profile-user"
-                                     src={photo_profile}
+                                     src={avatar_small}
                                      alt="Header Avatar"/>
                                 <span className="d-none d-xl-inline-block ml-1">{userAccount ? userAccount.name || userAccount.email : 'Admin'}</span>
                                 <i className="mdi mdi-chevron-down d-none d-xl-inline-block"/>

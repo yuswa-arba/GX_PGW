@@ -1,7 +1,7 @@
 import React from "react"
 
 // IMAGES
-import logo__svg from "../../assets/images/logo.svg"
+import logo__svg from "../../assets/images/gx_new_logo_favicon.png"
 import authentication__png from "../../assets/images/authentication-img.png"
 
 const LayoutAuthentication = (props) => {
